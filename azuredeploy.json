@@ -715,7 +715,7 @@
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
       "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}', parameters('accountName'), parameters('databaseName'))]",
+      "name": "[format('{0}/{1}', parameters('accountName'), 'RetailSalesDemoDB')]",
       "properties": {
         "resource": {
           "id": "[parameters('databaseName')]"
@@ -728,7 +728,7 @@
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
       "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', parameters('containerName'))]",
+      "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', 'StoreDemoGraphics')]",
       "properties": {
         "resource": {
           "id": "[parameters('containerName')]",
