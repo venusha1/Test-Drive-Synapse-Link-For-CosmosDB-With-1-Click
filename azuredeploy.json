@@ -717,7 +717,7 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]",
-        "[resourceId(concat('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB'))]"
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]"
       ]
     },
     {
@@ -739,7 +739,7 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]",
-        "[resourceId(concat('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB'))]"
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]"
       ]
     },
     {
@@ -761,7 +761,7 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]",
-        "[resourceId(concat('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB'))]"
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]"
       ]
     }
   ]
