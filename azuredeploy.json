@@ -728,7 +728,7 @@
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
       "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}/{2}', parameters('accountName'), parameters('databaseName'), parameters('containerName'))]",
+      "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', parameters('containerName'))]",
       "properties": {
         "resource": {
           "id": "[parameters('containerName')]",
