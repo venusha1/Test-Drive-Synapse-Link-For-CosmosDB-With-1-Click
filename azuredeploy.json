@@ -731,7 +731,7 @@
       "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', 'StoreDemoGraphics')]",
       "properties": {
         "resource": {
-          "id": "[parameters('containerName')]",
+          "id": "['StoreDemoGraphics']",
           "partitionKey": {
             "paths": [
               "[parameters('partitionKeyPath')]"
