@@ -250,7 +250,7 @@
           "description": "Username of your github account hosting synapse workspace resources"
         }
     },
-	    "accountName": {
+	    "CosmosDBAccountName": {
       "type": "string",
       "defaultValue": "[toLower(uniqueString(resourceGroup().id))]",
       "metadata": {
@@ -262,27 +262,6 @@
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
         "description": "Location for the Cosmos DB account."
-      }
-    },
-    "databaseName": {
-      "type": "string",
-      "defaultValue": "database1",
-      "metadata": {
-        "description": "The name for the database"
-      }
-    },
-    "containerName": {
-      "type": "string",
-      "defaultValue": "container1",
-      "metadata": {
-        "description": "The name for the container"
-      }
-    },
-    "partitionKeyPath": {
-      "type": "string",
-      "defaultValue": "/partitionKey",
-      "metadata": {
-        "description": "The partition key for the container"
       }
     },
     "throughputPolicy": {
