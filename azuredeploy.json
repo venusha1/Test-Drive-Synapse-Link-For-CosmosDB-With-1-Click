@@ -746,6 +746,50 @@
         "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]",
         "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('accountName'), 'RetailSalesDemoDB')]"
       ]
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+      "apiVersion": "2021-04-15",
+      "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', 'Products')]",
+      "properties": {
+        "resource": {
+          "id": "['Products']",
+          "partitionKey": {
+            "paths": [
+              "['/id']"
+            ],
+            "kind": "Hash"
+          },
+          "analyticalStorageTtl": "[parameters('analyticalStoreTTL')]"
+        },
+        "options": "[variables('throughput_Policy')[parameters('throughputPolicy')]]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]",
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('accountName'), 'RetailSalesDemoDB')]"
+      ]
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+      "apiVersion": "2021-04-15",
+      "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', 'RetailSales')]",
+      "properties": {
+        "resource": {
+          "id": "['RetailSales']",
+          "partitionKey": {
+            "paths": [
+              "['/id']"
+            ],
+            "kind": "Hash"
+          },
+          "analyticalStorageTtl": "[parameters('analyticalStoreTTL')]"
+        },
+        "options": "[variables('throughput_Policy')[parameters('throughputPolicy')]]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]",
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('accountName'), 'RetailSalesDemoDB')]"
+      ]
     }
   ]
 }
