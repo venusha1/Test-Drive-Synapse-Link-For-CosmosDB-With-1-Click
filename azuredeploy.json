@@ -701,7 +701,7 @@
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
       "apiVersion": "2021-04-15",
-      "name": "[concat(format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'StoreDemoGraphics'))]",
+      "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'StoreDemoGraphics')]",
       "properties": {
         "resource": {
           "id": "StoreDemoGraphics",
@@ -723,7 +723,7 @@
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
       "apiVersion": "2021-04-15",
-      "name": "[concat(format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'Products'))]",
+      "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'Products')]",
       "properties": {
         "resource": {
           "id": "Products",
@@ -745,7 +745,7 @@
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
       "apiVersion": "2021-04-15",
-      "name": "[concat(format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'RetailSales'))]",
+      "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'RetailSales')]",
       "properties": {
         "resource": {
           "id": "RetailSales",
