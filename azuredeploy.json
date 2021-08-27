@@ -681,7 +681,7 @@
           "defaultConsistencyLevel": "Session"
         },
         "databaseAccountOfferType": "Standard",
-        "locations": "[variables('locations')]",
+        "locations": "[variables('location')]" ,
         "enableAnalyticalStorage": true
       }
     },
