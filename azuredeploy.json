@@ -315,7 +315,7 @@
     ],
 	    "locations": [
       {
-        "locationName": "[parameters('location')]",
+        "locationName": "[variables('location')]",
         "failoverPriority": 0,
         "isZoneRedundant": false
       }
