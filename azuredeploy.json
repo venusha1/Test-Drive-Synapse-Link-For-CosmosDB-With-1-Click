@@ -675,7 +675,7 @@
       "type": "Microsoft.DocumentDB/databaseAccounts",
       "apiVersion": "2021-04-15",
       "name": "[parameters('CosmosDBAccountName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "properties": {
         "consistencyPolicy": {
           "defaultConsistencyLevel": "Session"
