@@ -1,0 +1,134 @@
+{
+	"name": "1-RetailSalesDemoNB",
+	"properties": {
+		"folder": {
+			"name": "SynapseLink-CosmosDB"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "ws1sparkpool1",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzcosmain/providers/Microsoft.Synapse/workspaces/csm7cojjx26e73xcpocws1/bigDataPools/ws1sparkpool1",
+				"name": "ws1sparkpool1",
+				"type": "Spark",
+				"endpoint": "https://csm7cojjx26e73xcpocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 5,
+				"cores": 8,
+				"memory": 56,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"strdmgurl = \"https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/SynapseCosmosDBLinkCSV/StoreDemoGraphics.csv\"\n",
+					"from pyspark import SparkFiles\n",
+					"spark.sparkContext.addFile(strdmgurl)\n",
+					"dfStoreDemoGraphics = spark.read.csv(\"file://\"+SparkFiles.get(\"StoreDemoGraphics.csv\"), header=True, inferSchema= True)\n",
+					"\n",
+					"dfStoreDemoGraphics.write\\\n",
+					"    .format(\"cosmos.oltp\")\\\n",
+					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\n",
+					"    .option(\"spark.cosmos.container\", \"StoreDemoGraphics\")\\\n",
+					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\n",
+					"    .mode('append')\\\n",
+					"    .save()\n",
+					""
+				],
+				"execution_count": 42
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"rtlslsurl = \"https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/SynapseCosmosDBLinkCSV/RetailSales.csv\"\r\n",
+					"from pyspark import SparkFiles\r\n",
+					"spark.sparkContext.addFile(rtlslsurl)\r\n",
+					"dfRetailSales = spark.read.csv(\"file://\"+SparkFiles.get(\"RetailSales.csv\"), header=True, inferSchema= True)\r\n",
+					"\r\n",
+					"dfRetailSales.write\\\r\n",
+					"    .format(\"cosmos.oltp\")\\\r\n",
+					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
+					"    .option(\"spark.cosmos.container\", \"RetailSales\")\\\r\n",
+					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
+					"    .mode('append')\\\r\n",
+					"    .save()"
+				],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"prdcurl = \"https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/SynapseCosmosDBLinkCSV/Products.csv\"\r\n",
+					"from pyspark import SparkFiles\r\n",
+					"spark.sparkContext.addFile(prdcurl)\r\n",
+					"dfProduct = spark.read.csv(\"file://\"+SparkFiles.get(\"Products.csv\"), header=True, inferSchema= True)\r\n",
+					"\r\n",
+					"dfProduct.write\\\r\n",
+					"    .format(\"cosmos.oltp\")\\\r\n",
+					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
+					"    .option(\"spark.cosmos.container\", \"Products\")\\\r\n",
+					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
+					"    .mode('append')\\\r\n",
+					"    .save()\r\n",
+					""
+				],
+				"execution_count": null
+			}
+		]
+	}
+}
