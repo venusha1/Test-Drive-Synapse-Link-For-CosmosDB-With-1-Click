@@ -691,7 +691,7 @@
       "name": "[format('{0}/{1}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]",
       "properties": {
         "resource": {
-          "id": "['RetailSalesDemoDB']"
+          "id": "RetailSalesDemoDB"
         }
       },
       "dependsOn": [
@@ -704,10 +704,10 @@
       "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'StoreDemoGraphics')]",
       "properties": {
         "resource": {
-          "id": "['StoreDemoGraphics']",
+          "id": "StoreDemoGraphics",
           "partitionKey": {
             "paths": [
-              "['/id']"
+              "/id"
             ],
             "kind": "Hash"
           },
@@ -726,10 +726,10 @@
       "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'Products')]",
       "properties": {
         "resource": {
-          "id": "['Products']",
+          "id": "Products",
           "partitionKey": {
             "paths": [
-              "['/id']"
+              "/id"
             ],
             "kind": "Hash"
           },
@@ -748,10 +748,10 @@
       "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'RetailSales')]",
       "properties": {
         "resource": {
-          "id": "['RetailSales']",
+          "id": "RetailSales",
           "partitionKey": {
             "paths": [
-              "['/id']"
+              "/id"
             ],
             "kind": "Hash"
           },
