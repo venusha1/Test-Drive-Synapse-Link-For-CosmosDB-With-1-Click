@@ -691,7 +691,7 @@
       "name": "[format('{0}/{1}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]",
       "properties": {
         "resource": {
-          "id": "[parameters('databaseName')]"
+          "id": "['RetailSalesDemoDB']"
         }
       },
       "dependsOn": [
