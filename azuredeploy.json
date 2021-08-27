@@ -674,7 +674,7 @@
 	    {
       "type": "Microsoft.DocumentDB/databaseAccounts",
       "apiVersion": "2021-04-15",
-      "name": "[parameters('accountName')]",
+      "name": "[parameters('CosmosDBAccountName')]",
       "location": "[parameters('location')]",
       "properties": {
         "consistencyPolicy": {
@@ -688,20 +688,20 @@
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
       "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}', parameters('accountName'), 'RetailSalesDemoDB')]",
+      "name": "[format('{0}/{1}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]",
       "properties": {
         "resource": {
           "id": "[parameters('databaseName')]"
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]"
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]"
       ]
     },
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
       "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', 'StoreDemoGraphics')]",
+      "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'StoreDemoGraphics')]",
       "properties": {
         "resource": {
           "id": "['StoreDemoGraphics']",
@@ -716,14 +716,14 @@
         "options": "[variables('throughput_Policy')[parameters('throughputPolicy')]]"
       },
       "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]",
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('accountName'), 'RetailSalesDemoDB')]"
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]",
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]"
       ]
     },
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
       "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', 'Products')]",
+      "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'Products')]",
       "properties": {
         "resource": {
           "id": "['Products']",
@@ -738,14 +738,14 @@
         "options": "[variables('throughput_Policy')[parameters('throughputPolicy')]]"
       },
       "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]",
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('accountName'), 'RetailSalesDemoDB')]"
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]",
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]"
       ]
     },
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
       "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}/{2}', parameters('accountName'), 'RetailSalesDemoDB', 'RetailSales')]",
+      "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'RetailSales')]",
       "properties": {
         "resource": {
           "id": "['RetailSales']",
@@ -760,8 +760,8 @@
         "options": "[variables('throughput_Policy')[parameters('throughputPolicy')]]"
       },
       "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('accountName'))]",
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('accountName'), 'RetailSalesDemoDB')]"
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]",
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]"
       ]
     }
   ]
