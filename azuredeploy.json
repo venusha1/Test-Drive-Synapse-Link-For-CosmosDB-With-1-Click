@@ -315,7 +315,7 @@
     ],
 	    "locations": [
       {
-        "locationName": "[variables('location')]",
+        "locationName": "[resourceGroup().location]",
         "failoverPriority": 0,
         "isZoneRedundant": false
       }
@@ -681,7 +681,7 @@
           "defaultConsistencyLevel": "Session"
         },
         "databaseAccountOfferType": "Standard",
-        "locations": "[variables('location')]" ,
+        "locations": "[variables('locations')]" ,
         "enableAnalyticalStorage": true
       }
     },
