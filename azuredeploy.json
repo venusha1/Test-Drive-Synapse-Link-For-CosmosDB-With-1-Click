@@ -688,7 +688,7 @@
     {
       "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
       "apiVersion": "2021-04-15",
-      "name": "[concat(format('{0}/{1}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB'))]",
+      "name": "[format('{0}/{1}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]",
       "properties": {
         "resource": {
           "id": "RetailSalesDemoDB"
@@ -705,50 +705,6 @@
       "properties": {
         "resource": {
           "id": "StoreDemoGraphics",
-          "partitionKey": {
-            "paths": [
-              "/id"
-            ],
-            "kind": "Hash"
-          },
-          "analyticalStorageTtl": "[parameters('analyticalStoreTTL')]"
-        },
-        "options": "[variables('throughput_Policy')[parameters('throughputPolicy')]]"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]",
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]"
-      ]
-    },
-    {
-      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
-      "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'Products')]",
-      "properties": {
-        "resource": {
-          "id": "Products",
-          "partitionKey": {
-            "paths": [
-              "/id"
-            ],
-            "kind": "Hash"
-          },
-          "analyticalStorageTtl": "[parameters('analyticalStoreTTL')]"
-        },
-        "options": "[variables('throughput_Policy')[parameters('throughputPolicy')]]"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('CosmosDBAccountName'))]",
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB')]"
-      ]
-    },
-    {
-      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
-      "apiVersion": "2021-04-15",
-      "name": "[format('{0}/{1}/{2}', parameters('CosmosDBAccountName'), 'RetailSalesDemoDB', 'RetailSales')]",
-      "properties": {
-        "resource": {
-          "id": "RetailSales",
           "partitionKey": {
             "paths": [
               "/id"
