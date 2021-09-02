@@ -72,25 +72,8 @@
 					"    .option(\"spark.cosmos.container\", \"Products\")\\\r\n",
 					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
 					"    .mode('append')\\\r\n",
-					"    .save()"
-				],
-				"execution_count": 20
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					},
-					"collapsed": true
-				},
-				"source": [
+					"    .save()\r\n",
+					"\r\n",
 					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/RetailSales.csv'\r\n",
 					"dfRetailSales = spark.read.csv(path, header=True, inferSchema=True)\r\n",
 					"dfRetailSales.write\\\r\n",
@@ -99,25 +82,8 @@
 					"    .option(\"spark.cosmos.container\", \"RetailSales\")\\\r\n",
 					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
 					"    .mode('append')\\\r\n",
-					"    .save()"
-				],
-				"execution_count": 21
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					},
-					"collapsed": true
-				},
-				"source": [
+					"    .save()\r\n",
+					"\r\n",
 					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/StoreDemoGraphics.csv'\r\n",
 					"dfStoreDemoGraphics = spark.read.csv(path, header=True, inferSchema=True)\r\n",
 					"dfStoreDemoGraphics.write\\\r\n",
@@ -126,10 +92,9 @@
 					"    .option(\"spark.cosmos.container\", \"StoreDemoGraphics\")\\\r\n",
 					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
 					"    .mode('append')\\\r\n",
-					"    .save()\r\n",
-					""
+					"    .save()"
 				],
-				"execution_count": 22
+				"execution_count": 3
 			}
 		]
 	}
