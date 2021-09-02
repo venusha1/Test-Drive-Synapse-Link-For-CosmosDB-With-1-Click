@@ -1379,7 +1379,7 @@
 							"We will use Quantitative Models to forecast future data as a function of past data. They are appropriate to use when past numerical data is available and when it is reasonable to assume that some of the patterns in the data are expected to continue into the future. These methods are usually applied to short or intermediate range decisions. For more information, click [here](https://en.wikipedia.org/wiki/Forecasting).\n",
 							"\n",
 							"\n",
-							"<img src=\"https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/store.PNG\" alt=\"Surface Device\" width=\"75%\"/>"
+							"<img src=\"https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/store.PNG\" alt=\"Surface Device\" width=\"20%\"/>"
 						]
 					},
 					{
@@ -1392,7 +1392,10 @@
 							}
 						},
 						"source": [
-							"## Data Ingestion into Cosmos DB using Synapse Cosmos DB Link"
+							"## Data Ingestion into Cosmos DB using Synapse Cosmos DB Link\r\n",
+							"<img src=\"https://synapse1poc.blob.core.windows.net/cosmolnksynp/cosmolnksynp/synapse-cosmosdb.png\" alt=\"Surface Device\" width=\"75%\"/>\r\n",
+							"\r\n",
+							""
 						]
 					},
 					{
