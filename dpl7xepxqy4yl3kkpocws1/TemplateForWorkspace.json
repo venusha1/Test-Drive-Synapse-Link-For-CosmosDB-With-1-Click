@@ -19,10 +19,6 @@
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/tripDataAndFaresCSV/fares-data.csv"
 		},
-		"RetailSalesDemoDB_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "RetailSalesDemoDB"
-		},
 		"TripFaresDataLakeStorageLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "@{concat('https://',linkedService().datalakeAccountName,'.dfs.core.windows.net')}"
@@ -30,6 +26,10 @@
 		"keyVaultLinkedservice_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "@{concat('https://',linkedService().keyVaultName,'.vault.azure.net/')}"
+		},
+		"RetailSalesDemoDB_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailSalesDemoDB"
 		}
 	},
 	"variables": {
@@ -1099,27 +1099,6 @@
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/RetailSalesDemoDB')]",
-			"type": "Microsoft.Synapse/workspaces/linkedServices",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"description": "Azure Synapse Link for Azure Cosmos DB",
-				"annotations": [],
-				"type": "CosmosDb",
-				"typeProperties": {
-					"accountEndpoint": "https://dplycs.documents.azure.com:443/",
-					"database": "[parameters('RetailSalesDemoDB_properties_typeProperties_database')]"
-				},
-				"connectVia": {
-					"referenceName": "AutoResolveIntegrationRuntime",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
-			]
 		},
 		{
 			"name": "[concat(parameters('workspaceName'), '/TripFaresDataLakeStorageLinkedService')]",
@@ -2218,6 +2197,27 @@
 			"apiVersion": "2019-06-01-preview",
 			"properties": {},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/RetailSalesDemoDB')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"description": "Azure Synapse Link for Azure Cosmos DB",
+				"annotations": [],
+				"type": "CosmosDb",
+				"typeProperties": {
+					"accountEndpoint": "https://<cosmosdb-account>.documents.azure.com:443/",
+					"database": "[parameters('RetailSalesDemoDB_properties_typeProperties_database')]"
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
 		}
 	]
 }

@@ -14,14 +14,14 @@
 		"HttpServerTripFareDataLinkedService_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/tripDataAndFaresCSV/fares-data.csv"
 		},
-		"RetailSalesDemoDB_properties_typeProperties_database": {
-			"value": "RetailSalesDemoDB"
-		},
 		"TripFaresDataLakeStorageLinkedService_properties_typeProperties_url": {
 			"value": "@{concat('https://',linkedService().datalakeAccountName,'.dfs.core.windows.net')}"
 		},
 		"keyVaultLinkedservice_properties_typeProperties_baseUrl": {
 			"value": "@{concat('https://',linkedService().keyVaultName,'.vault.azure.net/')}"
+		},
+		"RetailSalesDemoDB_properties_typeProperties_database": {
+			"value": "RetailSalesDemoDB"
 		}
 	}
 }
