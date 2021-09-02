@@ -9,10 +9,10 @@
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "28g",
-			"driverCores": 4,
-			"executorMemory": "28g",
-			"executorCores": 4,
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
@@ -30,10 +30,10 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzcsdbfrmtst/providers/Microsoft.Synapse/workspaces/tttsb726ymdc5m2ypocws1/bigDataPools/ws1sparkpool1",
+				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzfincsdply/providers/Microsoft.Synapse/workspaces/dpl7xepxqy4yl3kkpocws1/bigDataPools/ws1sparkpool1",
 				"name": "ws1sparkpool1",
 				"type": "Spark",
-				"endpoint": "https://tttsb726ymdc5m2ypocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"endpoint": "https://dpl7xepxqy4yl3kkpocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -122,7 +122,7 @@
 					"    .mode('append')\\\r\n",
 					"    .save()"
 				],
-				"execution_count": 2
+				"execution_count": 3
 			},
 			{
 				"cell_type": "markdown",
@@ -140,25 +140,6 @@
 			{
 				"cell_type": "code",
 				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					},
-					"collapsed": true
-				},
-				"source": [
-					"## Spark Schema and Table Creation"
-				],
-				"execution_count": null
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
 					"microsoft": {
 						"language": "sparksql"
 					},
@@ -166,63 +147,26 @@
 				},
 				"source": [
 					"%%sql\n",
-					"create database if not exists RetailSalesDemoDB"
-				],
-				"execution_count": 2
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"microsoft": {
-						"language": "sparksql"
-					},
-					"collapsed": false
-				},
-				"source": [
-					"%%sql\n",
+					"create database if not exists RetailSalesDemoDB;\n",
+					"\n",
 					"create table if not exists RetailSalesDemoDB.RetailSales using cosmos.olap options (\n",
 					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
 					"    spark.cosmos.preferredRegions 'West US 2',\n",
 					"    spark.cosmos.container 'RetailSales'\n",
-					")"
-				],
-				"execution_count": 3
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"microsoft": {
-						"language": "sparksql"
-					},
-					"collapsed": false
-				},
-				"source": [
-					"%%sql\n",
+					");\n",
+					"\n",
 					"create table if not exists RetailSalesDemoDB.StoreDemographics using cosmos.olap options (\n",
 					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
 					"    spark.cosmos.preferredRegions 'West US 2',\n",
 					"    spark.cosmos.container 'StoreDemoGraphics'\n",
-					")"
-				],
-				"execution_count": 4
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"microsoft": {
-						"language": "sparksql"
-					},
-					"collapsed": false
-				},
-				"source": [
-					"%%sql\n",
+					");\n",
 					"create table if not exists RetailSalesDemoDB.Product using cosmos.olap options (\n",
 					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
 					"    spark.cosmos.preferredRegions 'West US 2',\n",
 					"    spark.cosmos.container 'Products'\n",
-					")"
+					");"
 				],
-				"execution_count": 5
+				"execution_count": 9
 			},
 			{
 				"cell_type": "markdown",
@@ -272,15 +216,14 @@
 					"\n",
 					"display(data)"
 				],
-				"execution_count": 5
+				"execution_count": 10
 			},
 			{
 				"cell_type": "markdown",
 				"source": [
 					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
 					"\n",
-					"### Setup \n",
-					"Please replace all \"your-AML-%\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
+					"Replace all \"your-AML-%\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
 				]
 			},
 			{
@@ -300,9 +243,9 @@
 				"source": [
 					"from azureml.core import Workspace\r\n",
 					"\r\n",
-					"ws = Workspace.create(name='cosmamlwrsp',\r\n",
-					"               subscription_id='4eeedd72-d937-4243-86d1-c3982a84d924',\r\n",
-					"               resource_group='nashahzcsdbfrmtst',\r\n",
+					"ws = Workspace.create(name='your-AML-%',\r\n",
+					"               subscription_id='your-AML-%',\r\n",
+					"               resource_group='your-AML-%',\r\n",
 					"               create_resource_group=True,\r\n",
 					"               location='South Central US'\r\n",
 					"               )"
@@ -336,9 +279,9 @@
 					"from azureml.core.experiment import Experiment\n",
 					"from azureml.train.automl import AutoMLConfig\n",
 					"import os\n",
-					"subscription_id = os.getenv(\"SUBSCRIPTION_ID\", default=\"4eeedd72-d937-4243-86d1-c3982a84d924\")\n",
-					"resource_group = os.getenv(\"RESOURCE_GROUP\", default=\"nashahzcsdbfrmtst\")\n",
-					"workspace_name = os.getenv(\"WORKSPACE_NAME\", default=\"cosmamlwrsp\")\n",
+					"subscription_id = os.getenv(\"SUBSCRIPTION_ID\", default=\"your-AML-%\")\n",
+					"resource_group = os.getenv(\"RESOURCE_GROUP\", default=\"your-AML-%\")\n",
+					"workspace_name = os.getenv(\"WORKSPACE_NAME\", default=\"your-AML-%\")\n",
 					"workspace_region = os.getenv(\"WORKSPACE_REGION\", default=\"South Central US\")\n",
 					"\n",
 					"ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)\n",
@@ -582,13 +525,6 @@
 					"At this point you should have a chart like this one in the image below, created wit AutoML and MatplotLib. The results are that good because of the **logQuantity** column, a  data Leakage calculated from que **quantity** column. You can try to run the same experiment without it.\n",
 					"\n",
 					"<img src=\"https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/prediction.PNG\" alt=\"Chart\" width=\"75%\"/>\n",
-					"\n",
-					"## Next Steps\n",
-					"\n",
-					"1. [Deploy](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where) your Model.\n",
-					"1. [Collect and Evaluate](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-enable-data-collection) Model Data.\n",
-					"1. [Create](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-your-first-pipeline) a ML Pipeline.\n",
-					"1. [Create](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-event-grid) Events Driven CI/CD Workflows.\n",
 					"\n",
 					""
 				]
