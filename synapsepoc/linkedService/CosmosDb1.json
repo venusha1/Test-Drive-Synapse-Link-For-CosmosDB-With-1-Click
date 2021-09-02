@@ -1,0 +1,15 @@
+{
+	"name": "CosmosDb1",
+	"properties": {
+		"annotations": [],
+		"type": "CosmosDb",
+		"typeProperties": {
+			"accountEndpoint": "https://mcrcsdb.documents.azure.com:443/",
+			"database": "RetailSalesDemoDB"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
