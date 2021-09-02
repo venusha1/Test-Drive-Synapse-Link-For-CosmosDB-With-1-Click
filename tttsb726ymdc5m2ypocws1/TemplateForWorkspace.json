@@ -1383,7 +1383,7 @@
 						},
 						"source": [
 							"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/Products.csv'\r\n",
-							"dfProdcuts = spark.read.csv(path, header=True, inferSchema=True)\r\n",
+							"dfProdcutstest = spark.read.csv(path, header=True, inferSchema=True)\r\n",
 							"dfProdcuts.write\\\r\n",
 							"    .format(\"cosmos.oltp\")\\\r\n",
 							"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
