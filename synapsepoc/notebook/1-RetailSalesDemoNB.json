@@ -66,7 +66,7 @@
 				"source": [
 					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/Products.csv'\r\n",
 					"dfProdcutstest = spark.read.csv(path, header=True, inferSchema=True)\r\n",
-					"dfProdcuts.write\\\r\n",
+					"dfProdcutstest.write\\\r\n",
 					"    .format(\"cosmos.oltp\")\\\r\n",
 					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
 					"    .option(\"spark.cosmos.container\", \"Products\")\\\r\n",
