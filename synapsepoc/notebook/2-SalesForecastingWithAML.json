@@ -61,17 +61,7 @@
 					"We will use Quantitative Models to forecast future data as a function of past data. They are appropriate to use when past numerical data is available and when it is reasonable to assume that some of the patterns in the data are expected to continue into the future. These methods are usually applied to short or intermediate range decisions. For more information, click [here](https://en.wikipedia.org/wiki/Forecasting).\n",
 					"\n",
 					"\n",
-					"<img src=\"https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/store.PNG\" alt=\"Surface Device\" width=\"75%\"/>\n",
-					"\n",
-					"## Environment Creation\n",
-					"\n",
-					"The required steps are listed below. Please check the availabilty and try to colocate all these services in the same Azure region. Also, if you already have any of these services, created in another sample notebook, it is not required to create new ones.\n",
-					"\n",
-					"1. [README](/README.md) file pre-reqs.\n",
-					"1. Load the data using the [Batch Ingestion notebook](1CosmoDBSynapseSparkBatchIngestion.ipynb).\n",
-					"1. Create an Azure Machine Learning workspace using [this](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-workspace) tutorial.\n",
-					"1. Create an Azure Automated Machine Learning experiment using [this](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-automated-ml-for-ml-models) tutorial. You don't need to run it, neither to create a compute cluster.\n",
-					"1. Go to your **Synapse Spark Pool**, click on the **Packages Settings** tab, upload the [req.txt](req.txt) file located in this same folder, and click **force to get new settings on the spark pool** option. "
+					"<img src=\"https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/store.PNG\" alt=\"Surface Device\" width=\"75%\"/>"
 				]
 			},
 			{
@@ -84,7 +74,7 @@
 					}
 				},
 				"source": [
-					"## Data Ingestion Cosmos DB "
+					"## Data Ingestion into Cosmos DB using Synapse Cosmos DB Link"
 				]
 			},
 			{
@@ -103,8 +93,8 @@
 				},
 				"source": [
 					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/Products.csv'\r\n",
-					"dfProdcutstest = spark.read.csv(path, header=True, inferSchema=True)\r\n",
-					"dfProdcutstest.write\\\r\n",
+					"dfProdcuts = spark.read.csv(path, header=True, inferSchema=True)\r\n",
+					"dfProdcuts.write\\\r\n",
 					"    .format(\"cosmos.oltp\")\\\r\n",
 					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
 					"    .option(\"spark.cosmos.container\", \"Products\")\\\r\n",
@@ -132,7 +122,7 @@
 					"    .mode('append')\\\r\n",
 					"    .save()"
 				],
-				"execution_count": null
+				"execution_count": 2
 			},
 			{
 				"cell_type": "markdown",
@@ -244,7 +234,7 @@
 					}
 				},
 				"source": [
-					"## Joining Tables"
+					"## Joining Spark Tables"
 				]
 			},
 			{
@@ -290,22 +280,7 @@
 					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
 					"\n",
 					"### Setup \n",
-					"Let's start with the AML Environment setup. Please replace all \"your-AML-%\" placeholders with your own information, that you can get from your AML workspace in the the Azure Portal.\n",
-					""
-				]
-			},
-			{
-				"cell_type": "markdown",
-				"metadata": {
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					}
-				},
-				"source": [
-					"## AML Workspace Setup\r\n",
-					"Replace subscription_id , resource_group and location with values beofore execution"
+					"Please replace all \"your-AML-%\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
 				]
 			},
 			{
@@ -344,7 +319,9 @@
 					}
 				},
 				"source": [
-					"Use values for SUBSCRIPTION_ID,RESOURCE_GROUP,WORKSPACE_NAME,WORKSPACE_REGION from the previous step before execution"
+					"Please replace all \"your-AML-%\" placeholders with your own information\r\n",
+					"Use values for SUBSCRIPTION_ID,RESOURCE_GROUP,WORKSPACE_NAME,WORKSPACE_REGION from the previous step before execution\r\n",
+					""
 				]
 			},
 			{
