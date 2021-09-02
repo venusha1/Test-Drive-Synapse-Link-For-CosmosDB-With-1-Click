@@ -1,6 +1,7 @@
 {
 	"name": "RetailSalesDemoDB",
 	"properties": {
+		"description": "Azure Synapse Link for Azure Cosmos DB",
 		"annotations": [],
 		"type": "CosmosDb",
 		"typeProperties": {
