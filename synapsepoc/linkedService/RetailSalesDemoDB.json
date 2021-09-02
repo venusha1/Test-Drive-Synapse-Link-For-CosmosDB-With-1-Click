@@ -5,7 +5,7 @@
 		"annotations": [],
 		"type": "CosmosDb",
 		"typeProperties": {
-			"accountEndpoint": "https://<cosmosdb-account>.documents.azure.com:443/",
+			"accountEndpoint": "https://mcrcsdb.documents.azure.com:443/",
 			"database": "RetailSalesDemoDB"
 		},
 		"connectVia": {
