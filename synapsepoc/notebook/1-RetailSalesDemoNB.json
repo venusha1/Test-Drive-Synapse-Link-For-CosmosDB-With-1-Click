@@ -32,10 +32,10 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzcsdbph2/providers/Microsoft.Synapse/workspaces/csdmugqaeagqb5lipocws1/bigDataPools/ws1sparkpool1",
+				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzcsdbfrmtst/providers/Microsoft.Synapse/workspaces/tttsb726ymdc5m2ypocws1/bigDataPools/ws1sparkpool1",
 				"name": "ws1sparkpool1",
 				"type": "Spark",
-				"endpoint": "https://csdmugqaeagqb5lipocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"endpoint": "https://tttsb726ymdc5m2ypocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -51,22 +51,30 @@
 		"cells": [
 			{
 				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
 				"source": [
-					"strdmgurl = \"https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/SynapseCosmosDBLinkCSV/StoreDemoGraphics.csv\"\n",
-					"from pyspark import SparkFiles\n",
-					"spark.sparkContext.addFile(strdmgurl)\n",
-					"dfStoreDemoGraphics = spark.read.csv(\"file://\"+SparkFiles.get(\"StoreDemoGraphics.csv\"), header=True, inferSchema= True)\n",
-					"\n",
-					"dfStoreDemoGraphics.write\\\n",
-					"    .format(\"cosmos.oltp\")\\\n",
-					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\n",
-					"    .option(\"spark.cosmos.container\", \"StoreDemoGraphics\")\\\n",
-					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\n",
-					"    .mode('append')\\\n",
-					"    .save()\n",
-					""
+					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/Products.csv'\r\n",
+					"dfProdcuts = spark.read.csv(path, header=True, inferSchema=True)\r\n",
+					"dfProdcuts.write\\\r\n",
+					"    .format(\"cosmos.oltp\")\\\r\n",
+					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
+					"    .option(\"spark.cosmos.container\", \"Products\")\\\r\n",
+					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
+					"    .mode('append')\\\r\n",
+					"    .save()"
 				],
-				"execution_count": 1
+				"execution_count": 20
 			},
 			{
 				"cell_type": "code",
@@ -83,11 +91,8 @@
 					"collapsed": true
 				},
 				"source": [
-					"rtlslsurl = \"https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/SynapseCosmosDBLinkCSV/RetailSales.csv\"\r\n",
-					"from pyspark import SparkFiles\r\n",
-					"spark.sparkContext.addFile(rtlslsurl)\r\n",
-					"dfRetailSales = spark.read.csv(\"file://\"+SparkFiles.get(\"RetailSales.csv\"), header=True, inferSchema= True)\r\n",
-					"\r\n",
+					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/RetailSales.csv'\r\n",
+					"dfRetailSales = spark.read.csv(path, header=True, inferSchema=True)\r\n",
 					"dfRetailSales.write\\\r\n",
 					"    .format(\"cosmos.oltp\")\\\r\n",
 					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
@@ -96,7 +101,7 @@
 					"    .mode('append')\\\r\n",
 					"    .save()"
 				],
-				"execution_count": 2
+				"execution_count": 21
 			},
 			{
 				"cell_type": "code",
@@ -113,21 +118,18 @@
 					"collapsed": true
 				},
 				"source": [
-					"prdcurl = \"https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/SynapseCosmosDBLinkCSV/Products.csv\"\r\n",
-					"from pyspark import SparkFiles\r\n",
-					"spark.sparkContext.addFile(prdcurl)\r\n",
-					"dfProduct = spark.read.csv(\"file://\"+SparkFiles.get(\"Products.csv\"), header=True, inferSchema= True)\r\n",
-					"\r\n",
-					"dfProduct.write\\\r\n",
+					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/StoreDemoGraphics.csv'\r\n",
+					"dfStoreDemoGraphics = spark.read.csv(path, header=True, inferSchema=True)\r\n",
+					"dfStoreDemoGraphics.write\\\r\n",
 					"    .format(\"cosmos.oltp\")\\\r\n",
 					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
-					"    .option(\"spark.cosmos.container\", \"Products\")\\\r\n",
+					"    .option(\"spark.cosmos.container\", \"StoreDemoGraphics\")\\\r\n",
 					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
 					"    .mode('append')\\\r\n",
 					"    .save()\r\n",
 					""
 				],
-				"execution_count": null
+				"execution_count": 22
 			}
 		]
 	}
