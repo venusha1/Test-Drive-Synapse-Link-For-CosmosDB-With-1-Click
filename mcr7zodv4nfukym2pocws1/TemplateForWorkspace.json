@@ -7,13 +7,13 @@
 			"metadata": "Workspace name",
 			"defaultValue": "mcr7zodv4nfukym2pocws1"
 		},
-		"TripFaresSynapseAnalyticsLinkedService_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'TripFaresSynapseAnalyticsLinkedService'"
-		},
 		"RetailSalesDemoDB_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'RetailSalesDemoDB'"
+		},
+		"TripFaresSynapseAnalyticsLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'TripFaresSynapseAnalyticsLinkedService'"
 		},
 		"HttpServerTripDataLinkedService_properties_typeProperties_url": {
 			"type": "string",
@@ -1101,6 +1101,25 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('workspaceName'), '/RetailSalesDemoDB')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "CosmosDb",
+				"typeProperties": {
+					"connectionString": "[parameters('RetailSalesDemoDB_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('workspaceName'), '/TripFaresDataLakeStorageLinkedService')]",
 			"type": "Microsoft.Synapse/workspaces/linkedServices",
 			"apiVersion": "2019-06-01-preview",
@@ -1329,10 +1348,10 @@
 						"name": "python"
 					},
 					"a365ComputeOptions": {
-						"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzfincsdply/providers/Microsoft.Synapse/workspaces/dpl7xepxqy4yl3kkpocws1/bigDataPools/ws1sparkpool1",
+						"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzcsdb0908-2/providers/Microsoft.Synapse/workspaces/mcr7zodv4nfukym2pocws1/bigDataPools/ws1sparkpool1",
 						"name": "ws1sparkpool1",
 						"type": "Spark",
-						"endpoint": "https://dpl7xepxqy4yl3kkpocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+						"endpoint": "https://mcr7zodv4nfukym2pocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
 						"auth": {
 							"type": "AAD",
 							"authResource": "https://dev.azuresynapse.net"
@@ -1340,12 +1359,15 @@
 						"sparkVersion": "2.4",
 						"nodeCount": 5,
 						"cores": 8,
-						"memory": 56
-					}
+						"memory": 56,
+						"automaticScaleJobs": false
+					},
+					"sessionKeepAliveTimeout": 30
 				},
 				"cells": [
 					{
 						"cell_type": "markdown",
+						"metadata": {},
 						"source": [
 							"# Leverage power of Spark SQL to join & aggregate operational data across Cosmos DB containers and Near real-time sales forecasting\n",
 							"\n",
@@ -1523,6 +1545,7 @@
 					},
 					{
 						"cell_type": "markdown",
+						"metadata": {},
 						"source": [
 							"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
 							"\n",
@@ -1573,6 +1596,7 @@
 					},
 					{
 						"cell_type": "code",
+						"metadata": {},
 						"source": [
 							"import azureml.core\n",
 							"import pandas as pd\n",
@@ -1609,6 +1633,7 @@
 					},
 					{
 						"cell_type": "markdown",
+						"metadata": {},
 						"source": [
 							"### Data Preparation - Feature engineering, Splitting train & test datasets\n",
 							""
@@ -1616,6 +1641,7 @@
 					},
 					{
 						"cell_type": "code",
+						"metadata": {},
 						"source": [
 							"# Initial variables\n",
 							"time_column_name = 'weekStarting'\n",
@@ -1678,6 +1704,7 @@
 					},
 					{
 						"cell_type": "markdown",
+						"metadata": {},
 						"source": [
 							"### Training the Models using AutoML Forecasting\n",
 							"\n",
@@ -1686,6 +1713,7 @@
 					},
 					{
 						"cell_type": "code",
+						"metadata": {},
 						"source": [
 							"# Parameters\n",
 							"time_series_settings = {\n",
@@ -1717,12 +1745,14 @@
 					},
 					{
 						"cell_type": "markdown",
+						"metadata": {},
 						"source": [
 							"### Retrieving the Best Model and Forecasting"
 						]
 					},
 					{
 						"cell_type": "code",
+						"metadata": {},
 						"source": [
 							"# Retrieving the best model\n",
 							"best_run, fitted_model = remote_run.get_output()\n",
@@ -1741,12 +1771,14 @@
 					},
 					{
 						"cell_type": "markdown",
+						"metadata": {},
 						"source": [
 							"### Plotting the Results"
 						]
 					},
 					{
 						"cell_type": "code",
+						"metadata": {},
 						"source": [
 							"import pandas as pd\n",
 							"import numpy as np\n",
@@ -1828,6 +1860,7 @@
 					},
 					{
 						"cell_type": "markdown",
+						"metadata": {},
 						"source": [
 							"## Closing\n",
 							"\n",
@@ -2197,25 +2230,6 @@
 			"apiVersion": "2019-06-01-preview",
 			"properties": {},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/RetailSalesDemoDB')]",
-			"type": "Microsoft.Synapse/workspaces/linkedServices",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": [],
-				"type": "CosmosDb",
-				"typeProperties": {
-					"connectionString": "[parameters('RetailSalesDemoDB_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "AutoResolveIntegrationRuntime",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
-			]
 		}
 	]
 }

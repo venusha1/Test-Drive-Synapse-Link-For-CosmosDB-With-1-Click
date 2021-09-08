@@ -5,10 +5,10 @@
 		"workspaceName": {
 			"value": "mcr7zodv4nfukym2pocws1"
 		},
-		"TripFaresSynapseAnalyticsLinkedService_connectionString": {
+		"RetailSalesDemoDB_connectionString": {
 			"value": ""
 		},
-		"RetailSalesDemoDB_connectionString": {
+		"TripFaresSynapseAnalyticsLinkedService_connectionString": {
 			"value": ""
 		},
 		"HttpServerTripDataLinkedService_properties_typeProperties_url": {
