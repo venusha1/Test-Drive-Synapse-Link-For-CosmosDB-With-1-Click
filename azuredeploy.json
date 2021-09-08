@@ -233,20 +233,9 @@
         "description": "Time of day when the data warehouse will be paused"
       }
     },
-    "transparentDataEncryption": {
-        "type": "string",
-        "defaultValue": "Enabled",
-        "allowedValues": [
-          "Enabled",
-          "Disabled"
-        ],
-        "metadata": {
-          "description": "Enable or Disable Transparent Data Encryption on SQL pool"
-        }
-    },
- "CosmosDBAccountName": {
+    "CosmosDBAccountName": {
       "type": "string",
-      "defaultValue": "[toLower(uniqueString(resourceGroup().id))]",
+      "defaultValue": "",
       "metadata": {
         "description": "Cosmos DB account name"
       }
@@ -576,17 +565,6 @@
           ],
           "properties": {
             "Enabled": "[parameters('metadataSync')]"
-          }
-        },
-        {
-          "name": "current",
-          "type": "transparentDataEncryption",
-          "apiVersion": "2021-03-01",
-          "dependsOn": [
-            "[variables('sqlPoolName')]"
-          ],
-          "properties": {
-            "status": "[parameters('transparentDataEncryption')]"
           }
         }
       ]
