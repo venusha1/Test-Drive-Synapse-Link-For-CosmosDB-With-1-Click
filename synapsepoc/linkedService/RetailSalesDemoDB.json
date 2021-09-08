@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "CosmosDb",
 		"typeProperties": {
-			"connectionString": "AccountEndpoint=https://mcrcsdb.documents.azure.com:443/;Database=RetailSalesDemoDB;",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIk1DUlZZNVhRTFg0V05KTVdQT0NXUzFfZDZlZTIxM2YtYzM2Yy00ODE1LTk5ZTQtOWUxZjA3MTM1M2YwIg0KfQ=="
+			"connectionString": "AccountEndpoint=https://csdb0907.documents.azure.com:443/;Database=RetailSalesDemoDB;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIk5BVjJMNVVSVUJZWEhXVTZQT0NXUzFfOTkzMWU0OTItNmUwZi00OTRkLWI1NWQtYWJjZDM2MDQ5MTMyIg0KfQ=="
 		},
 		"connectVia": {
 			"referenceName": "AutoResolveIntegrationRuntime",
