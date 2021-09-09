@@ -91,43 +91,6 @@
 				]
 			},
 			{
-				"cell_type": "code",
-				"metadata": {
-					"collapsed": false
-				},
-				"source": [
-					"data = spark.sql(\"select a.storeId \\\n",
-					"                       , b.productCode \\\n",
-					"                       , b.wholeSaleCost \\\n",
-					"                       , b.basePrice \\\n",
-					"                       , c.ratioAge60 \\\n",
-					"                       , c.collegeRatio \\\n",
-					"                       , c.income \\\n",
-					"                       , c.highIncome150Ratio \\\n",
-					"                       , c.largeHH \\\n",
-					"                       , c.minoritiesRatio \\\n",
-					"                       , c.more1FullTimeEmployeeRatio \\\n",
-					"                       , c.distanceNearestWarehouse \\\n",
-					"                       , c.salesNearestWarehousesRatio \\\n",
-					"                       , c.avgDistanceNearest5Supermarkets \\\n",
-					"                       , c.salesNearest5StoresRatio \\\n",
-					"                       , a.quantity \\\n",
-					"                       , a.logQuantity \\\n",
-					"                       , a.advertising \\\n",
-					"                       , a.price \\\n",
-					"                       , a.weekStarting \\\n",
-					"                 from RetailSalesDemoDB.retailsales a \\\n",
-					"                 left join RetailSalesDemoDB.product b \\\n",
-					"                 on a.productcode = b.productcode \\\n",
-					"                 left join RetailSalesDemoDB.storedemographics c \\\n",
-					"                 on a.storeId = c.storeId \\\n",
-					"                 order by a.weekStarting, a.storeId, b.productCode\")\n",
-					"\n",
-					"display(data)"
-				],
-				"execution_count": 10
-			},
-			{
 				"cell_type": "markdown",
 				"source": [
 					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
