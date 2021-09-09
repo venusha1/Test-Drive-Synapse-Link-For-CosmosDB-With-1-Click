@@ -195,41 +195,6 @@
 				]
 			},
 			{
-				"cell_type": "code",
-				"source": [
-					"import azureml.core\n",
-					"import pandas as pd\n",
-					"import numpy as np\n",
-					"import logging\n",
-					"from azureml.core.workspace import Workspace\n",
-					"from azureml.core import Workspace\n",
-					"from azureml.core.experiment import Experiment\n",
-					"from azureml.train.automl import AutoMLConfig\n",
-					"import os\n",
-					"subscription_id = os.getenv(\"SUBSCRIPTION_ID\", default=\"test\")\n",
-					"resource_group = os.getenv(\"RESOURCE_GROUP\", default=\"test\")\n",
-					"workspace_name = os.getenv(\"WORKSPACE_NAME\", default=\"test\")\n",
-					"workspace_region = os.getenv(\"WORKSPACE_REGION\", default=\"South Central US\")\n",
-					"\n",
-					"ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)\n",
-					"ws.write_config()\n",
-					"    \n",
-					"experiment_name = 'automl-surfaceforecasting'\n",
-					"experiment = Experiment(ws, experiment_name)\n",
-					"output = {}\n",
-					"output['Subscription ID'] = ws.subscription_id\n",
-					"output['Workspace'] = ws.name\n",
-					"output['SKU'] = ws.sku\n",
-					"output['Resource Group'] = ws.resource_group\n",
-					"output['Location'] = ws.location\n",
-					"output['Run History Name'] = experiment_name\n",
-					"pd.set_option('display.max_colwidth', -1)\n",
-					"outputDf = pd.DataFrame(data = output, index = [''])\n",
-					"outputDf.T"
-				],
-				"execution_count": 6
-			},
-			{
 				"cell_type": "markdown",
 				"source": [
 					"### Data Preparation - Feature engineering, Splitting train & test datasets\n",
