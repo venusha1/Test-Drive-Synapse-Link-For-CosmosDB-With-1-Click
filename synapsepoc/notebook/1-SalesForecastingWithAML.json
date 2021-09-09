@@ -154,18 +154,18 @@
 					"\n",
 					"create table if not exists RetailSalesDemoDB.RetailSales using cosmos.olap options (\n",
 					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
-					"    spark.cosmos.preferredRegions 'South Central US',\n",
+					"    spark.cosmos.preferredRegions 'South Central US',\n", // Optional Update if Required
 					"    spark.cosmos.container 'RetailSales'\n",
 					");\n",
 					"\n",
 					"create table if not exists RetailSalesDemoDB.StoreDemographics using cosmos.olap options (\n",
 					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
-					"    spark.cosmos.preferredRegions 'South Central US',\n",
+					"    spark.cosmos.preferredRegions 'South Central US',\n", // Optional Update if Required
 					"    spark.cosmos.container 'StoreDemoGraphics'\n",
 					");\n",
 					"create table if not exists RetailSalesDemoDB.Product using cosmos.olap options (\n",
 					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
-					"    spark.cosmos.preferredRegions 'South Central US',\n",
+					"    spark.cosmos.preferredRegions 'South Central US',\n", // Optional Update if Required
 					"    spark.cosmos.container 'Products'\n",
 					");"
 				],
@@ -226,7 +226,7 @@
 				"source": [
 					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
 					"\n",
-					"Replace all \"your-AML-%\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
+					"Replace all \"AML%\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
 				]
 			},
 			{
@@ -246,11 +246,11 @@
 				"source": [
 					"from azureml.core import Workspace\r\n",
 					"\r\n",
-					"ws = Workspace.create(name='your-AML-%',\r\n",
-					"               subscription_id='your-AML-%',\r\n",
-					"               resource_group='your-AML-%',\r\n",
+					"ws = Workspace.create(name='<New AML Workspace Name>',\r\n",
+					"               subscription_id='<Subscription ID Where AML Workspace Will be Created.Same as Where Other Resources are deployed as Part of this Package>',\r\n",
+					"               resource_group='<Resource Group Where New AML Workspace Will be Created.Same as Where Other Resources are deployed as Part of this Package>',\r\n",
 					"               create_resource_group=True,\r\n",
-					"               location='South Central US'\r\n",
+					"               location='South Central US'\r\n", ## Optional Update if Required
 					"               )"
 				],
 				"execution_count": null
@@ -265,7 +265,7 @@
 					}
 				},
 				"source": [
-					"Please replace all \"your-AML-%\" placeholders with your own information\r\n",
+					"Please replace all \"AML%\" placeholders with your own information\r\n",
 					"Use values for SUBSCRIPTION_ID,RESOURCE_GROUP,WORKSPACE_NAME,WORKSPACE_REGION from the previous step before execution\r\n",
 					""
 				]
@@ -282,10 +282,10 @@
 					"from azureml.core.experiment import Experiment\n",
 					"from azureml.train.automl import AutoMLConfig\n",
 					"import os\n",
-					"subscription_id = os.getenv(\"SUBSCRIPTION_ID\", default=\"your-AML-%\")\n",
-					"resource_group = os.getenv(\"RESOURCE_GROUP\", default=\"your-AML-%\")\n",
-					"workspace_name = os.getenv(\"WORKSPACE_NAME\", default=\"your-AML-%\")\n",
-					"workspace_region = os.getenv(\"WORKSPACE_REGION\", default=\"South Central US\")\n",
+					"subscription_id = os.getenv(\"SUBSCRIPTION_ID\", default=\"Subscription Where AML Workspace is Deployed in Previous Step")\n",
+					"resource_group = os.getenv(\"RESOURCE_GROUP\", default=\"<Resource Group Where AML Workspace is Deployed in Previous Step>")\n",
+					"workspace_name = os.getenv(\"WORKSPACE_NAME\", default=\"<AML Workspace Name Created in Previous Step>")\n",
+					"workspace_region = os.getenv(\"WORKSPACE_REGION\", default=\"South Central US\")\n", ## Optional Update if Required
 					"\n",
 					"ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)\n",
 					"ws.write_config()\n",
