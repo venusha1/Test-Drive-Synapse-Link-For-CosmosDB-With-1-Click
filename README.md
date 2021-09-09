@@ -1,15 +1,15 @@
-## Azure Synapse Link For CosmosDB 1-click environment,Deployment of Azure Synapse,Synapse Link for CosmosDB,CosmosDB(Analytical Containers),Notebook
-This 1-click deployment allows the user to deploy a Proof-of-Concept environment of Azure Synapse Analytics with dataset (New York Taxi Trips & Fares data), pipeline to (ingest, merge, aggregate), 	notebook (Spark ML prediction)
+## Azure Synapse Link For CosmosDB 1-click environment
+This 1-click deployment allows the user to deploy a environment of Azure Synapse Analytics ,Synapse Link for CosmosDB,CosmosDB (Analytical Store),Notebook (Sales Forecasting)
 
 ## Prerequisites
 
-Owner role (or Contributor roles) for the Azure Subscription the template being deployed in. This is for creation of a separate Proof-of-Concept Resource Group and to delegate roles necessary for this proof of concept. Refer to this [official documentation](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-steps) for RBAC role-assignments.
+Owner role (or Contributor roles) for the Azure Subscription the template being deployed in. This is for creation of a separate Resource Group and to delegate roles necessary for this proof of concept. Refer to this [official documentation](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-steps) for RBAC role-assignments.
 
 ## Deployment Steps
 1. Fork out [this github repository](https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click) into your github account. 
     
    **If you don't fork repo:** 
-   + **The pre-populated dataset, pipeline and notebook will not be deployed**
+   + **Notebook will not be deployed**
    + **You will get a Github publishing error**
    
    
