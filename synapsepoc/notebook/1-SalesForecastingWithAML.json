@@ -65,22 +65,6 @@
 				]
 			},
 			{
-				"cell_type": "markdown",
-				"metadata": {
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					}
-				},
-				"source": [
-					"## Data Ingestion into Cosmos DB using Synapse Cosmos DB Link\r\n",
-					"<img src=\"https://synapse1poc.blob.core.windows.net/cosmolnksynp/cosmolnksynp/synapse-cosmosdb.png\" alt=\"Surface Device\" width=\"75%\"/>\r\n",
-					"\r\n",
-					""
-				]
-			},
-			{
 				"cell_type": "code",
 				"metadata": {
 					"jupyter": {
