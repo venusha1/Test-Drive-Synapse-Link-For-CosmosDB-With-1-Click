@@ -266,7 +266,6 @@
 				},
 				"source": [
 					"Please replace all \"your-AML-%\" placeholders with your own information\r\n",
-					"Use values for SUBSCRIPTION_ID,RESOURCE_GROUP,WORKSPACE_NAME,WORKSPACE_REGION from the previous step before execution\r\n",
 					""
 				]
 			},
