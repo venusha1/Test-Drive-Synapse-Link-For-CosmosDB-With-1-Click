@@ -90,6 +90,10 @@ This template deploys necessary resources to support an Azure Synapse link for C
 
 ![PostDeployment-2](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/2.gif)
 
+#### Notebook execution to Ingest data into CosmosDB containers,Read this data through Synapse Spark serverless and execute Azure Machine Learning
+
+- Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
+- Expand 'Azure CosmosDB', There will be three containers listed with 'Analytical Store' enabled
 - After the parameters are updated, click on 'Commit all'.
 - After successful commit, click 'Publish'. A blade will appear from right side of the window.
 - Click 'Ok'.
