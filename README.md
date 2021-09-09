@@ -84,7 +84,6 @@ This template deploys necessary resources to support an Azure Synapse link for C
 - Click 'Apply' to save the changes
 
 #### Navigating Synapse Link for CosmosDB
-
 - Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
 - Expand 'Azure CosmosDB', There will be three containers listed with 'Analytical Store' enabled
 
@@ -92,11 +91,13 @@ This template deploys necessary resources to support an Azure Synapse link for C
 
 #### Notebook execution to Ingest data into CosmosDB containers,Read this data through Synapse Spark serverless and execute Azure Machine Learning
 
-- Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
-- Expand 'Azure CosmosDB', There will be three containers listed with 'Analytical Store' enabled
-- After the parameters are updated, click on 'Commit all'.
-- After successful commit, click 'Publish'. A blade will appear from right side of the window.
-- Click 'Ok'.
+- Click on the 'Devlop' icon in the left panel and navigate to '1-SalesForecastingWithAML' notebook.
+- Follow the instructions in each cell of Notebook to execute:
+  Ingest Data into CosmosDB containers
+  Create Spark tables out of CosmosDB using Synapse link for CosmosDB
+  Join spark tables using Synapse spark serverless
+  Execute Machine learning model on this dataset using Azure ML
+
 
 ![PostDeployment-3](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/3.gif)
 
