@@ -35,7 +35,11 @@ Owner role (or Contributor roles) for the Azure Subscription the template being 
      - Time Zone
      - Resume Time
      - Pause Time
-     - Option (Enabled or Disabled) for Transparent Data Encryption
+     - Cosmos DB Account Name
+     - Throughput Policy
+     - Manual Provisioned Throughput
+     - Autoscale Max Throughput
+     - Analytical Store TTL (Default -1)
      - Github Username (username for the account where [this github repository](https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click) was forked out into)
 
    - Click 'Review + Create'.
