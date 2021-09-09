@@ -30,10 +30,10 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahz0909-04/providers/Microsoft.Synapse/workspaces/fgbdh5hhvrxqabiapocws1/bigDataPools/ws1sparkpool1",
+				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzfincsdply/providers/Microsoft.Synapse/workspaces/dpl7xepxqy4yl3kkpocws1/bigDataPools/ws1sparkpool1",
 				"name": "ws1sparkpool1",
 				"type": "Spark",
-				"endpoint": "https://fgbdh5hhvrxqabiapocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"endpoint": "https://dpl7xepxqy4yl3kkpocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -63,6 +63,113 @@
 					"\n",
 					"<img src=\"https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/store.PNG\" alt=\"Surface Device\" width=\"20%\"/>"
 				]
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"## Data Ingestion into Cosmos DB using Synapse Cosmos DB Link\r\n",
+					"<img src=\"https://synapse1poc.blob.core.windows.net/cosmolnksynp/cosmolnksynp/synapse-cosmosdb.png\" alt=\"Surface Device\" width=\"75%\"/>\r\n",
+					"\r\n",
+					""
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/Products.csv'\r\n",
+					"dfProdcuts = spark.read.csv(path, header=True, inferSchema=True)\r\n",
+					"dfProdcuts.write\\\r\n",
+					"    .format(\"cosmos.oltp\")\\\r\n",
+					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
+					"    .option(\"spark.cosmos.container\", \"Products\")\\\r\n",
+					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
+					"    .mode('append')\\\r\n",
+					"    .save()\r\n",
+					"\r\n",
+					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/RetailSales.csv'\r\n",
+					"dfRetailSales = spark.read.csv(path, header=True, inferSchema=True)\r\n",
+					"dfRetailSales.write\\\r\n",
+					"    .format(\"cosmos.oltp\")\\\r\n",
+					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
+					"    .option(\"spark.cosmos.container\", \"RetailSales\")\\\r\n",
+					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
+					"    .mode('append')\\\r\n",
+					"    .save()\r\n",
+					"\r\n",
+					"path = 'wasbs://cosmolnksynp@synapse1poc.blob.core.windows.net/cosmolnksynp/StoreDemoGraphics.csv'\r\n",
+					"dfStoreDemoGraphics = spark.read.csv(path, header=True, inferSchema=True)\r\n",
+					"dfStoreDemoGraphics.write\\\r\n",
+					"    .format(\"cosmos.oltp\")\\\r\n",
+					"    .option(\"spark.synapse.linkedService\", \"RetailSalesDemoDB\")\\\r\n",
+					"    .option(\"spark.cosmos.container\", \"StoreDemoGraphics\")\\\r\n",
+					"    .option(\"spark.cosmos.write.upsertEnabled\", \"true\")\\\r\n",
+					"    .mode('append')\\\r\n",
+					"    .save()"
+				],
+				"execution_count": 3
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"## Spark Schema and Table Creation"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\n",
+					"create database if not exists RetailSalesDemoDB;\n",
+					"\n",
+					"create table if not exists RetailSalesDemoDB.RetailSales using cosmos.olap options (\n",
+					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
+					"    spark.cosmos.preferredRegions 'South Central US',\n",
+					"    spark.cosmos.container 'RetailSales'\n",
+					");\n",
+					"\n",
+					"create table if not exists RetailSalesDemoDB.StoreDemographics using cosmos.olap options (\n",
+					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
+					"    spark.cosmos.preferredRegions 'South Central US',\n",
+					"    spark.cosmos.container 'StoreDemoGraphics'\n",
+					");\n",
+					"create table if not exists RetailSalesDemoDB.Product using cosmos.olap options (\n",
+					"    spark.synapse.linkedService 'RetailSalesDemoDB',\n",
+					"    spark.cosmos.preferredRegions 'South Central US',\n",
+					"    spark.cosmos.container 'Products'\n",
+					");"
+				],
+				"execution_count": 9
 			},
 			{
 				"cell_type": "markdown",
@@ -117,8 +224,36 @@
 			{
 				"cell_type": "markdown",
 				"source": [
-					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model"
+					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
+					"\n",
+					"Replace all \"your-AML-%\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
 				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"from azureml.core import Workspace\r\n",
+					"\r\n",
+					"ws = Workspace.create(name='your-AML-%',\r\n",
+					"               subscription_id='your-AML-%',\r\n",
+					"               resource_group='your-AML-%',\r\n",
+					"               create_resource_group=True,\r\n",
+					"               location='South Central US'\r\n",
+					"               )"
+				],
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
@@ -130,9 +265,45 @@
 					}
 				},
 				"source": [
-					"\r\n",
+					"Please replace all \"your-AML-%\" placeholders with your own information\r\n",
+					"Use values for SUBSCRIPTION_ID,RESOURCE_GROUP,WORKSPACE_NAME,WORKSPACE_REGION from the previous step before execution\r\n",
 					""
 				]
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"import azureml.core\n",
+					"import pandas as pd\n",
+					"import numpy as np\n",
+					"import logging\n",
+					"from azureml.core.workspace import Workspace\n",
+					"from azureml.core import Workspace\n",
+					"from azureml.core.experiment import Experiment\n",
+					"from azureml.train.automl import AutoMLConfig\n",
+					"import os\n",
+					"subscription_id = os.getenv(\"SUBSCRIPTION_ID\", default=\"your-AML-%\")\n",
+					"resource_group = os.getenv(\"RESOURCE_GROUP\", default=\"your-AML-%\")\n",
+					"workspace_name = os.getenv(\"WORKSPACE_NAME\", default=\"your-AML-%\")\n",
+					"workspace_region = os.getenv(\"WORKSPACE_REGION\", default=\"South Central US\")\n",
+					"\n",
+					"ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)\n",
+					"ws.write_config()\n",
+					"    \n",
+					"experiment_name = 'automl-surfaceforecasting'\n",
+					"experiment = Experiment(ws, experiment_name)\n",
+					"output = {}\n",
+					"output['Subscription ID'] = ws.subscription_id\n",
+					"output['Workspace'] = ws.name\n",
+					"output['SKU'] = ws.sku\n",
+					"output['Resource Group'] = ws.resource_group\n",
+					"output['Location'] = ws.location\n",
+					"output['Run History Name'] = experiment_name\n",
+					"pd.set_option('display.max_colwidth', -1)\n",
+					"outputDf = pd.DataFrame(data = output, index = [''])\n",
+					"outputDf.T"
+				],
+				"execution_count": 6
 			},
 			{
 				"cell_type": "markdown",
