@@ -69,7 +69,7 @@ This template deploys necessary resources to support an Azure Synapse link for C
 - Click on the newly deployed Synapse workspace.
 - Click on link 'Open' inside the box labelled as 'Open Synapse Studio'.
 - Click on 'Log into Github' after workspace is opened. Provide your credentials for the github account holding the forked out repository.
-- After logging in into your github account, click on 'Integrate' icon in the left panel. A blade will appear from right side of the screen.
+- After logging in into your github account, click on 'Notebook' icon in the left panel. A blade will appear from right side of the screen.
 - Make sure that 'main' branch is selected as 'Working branch' and click 'Save'.
 
 ![PostDeployment-1](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/1.gif)
