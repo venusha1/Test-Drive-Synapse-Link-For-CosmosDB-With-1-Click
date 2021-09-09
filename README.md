@@ -15,7 +15,7 @@ Owner role (or Contributor roles) for the Azure Subscription the template being 
    
   <!--  ![Fork](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/4.gif) -->
  
-2. Click 'Deploy To Azure' button given below to deploy all the resources.
+2. While in your forked repo,Click 'Deploy To Azure' button given below to deploy all the resources.
 
     [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fnashahz%2FTest-Drive-Synapse-Link-For-CosmosDB-With-1-Click%2Fmain%2Fazuredeploy.json)
 
