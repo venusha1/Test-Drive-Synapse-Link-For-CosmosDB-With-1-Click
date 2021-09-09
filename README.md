@@ -82,15 +82,11 @@ This template deploys necessary resources to support an Azure Synapse link for C
 - Select CosmosDB account
 - Select CosmosDB Databasename 'RetailSalesDemoDB'
 - Click 'Apply' to save the changes
-- Update the following parameter values. ___(You can copy the resource names from the resource group recently deployed.)___
-    - SynapseWorkspaceName  (Make sure workspace name is fully qualified domain name, i.e. workspaceName.database.windows.net)
-    - SQLDedicatedPoolName
-    - SQLLoginUsername
-    - KeyVaultName
-    - DatalakeAccountName
 
-- Now open the Notebook named '1-SalesForecastingWithAML'.
-- Click on 'Parameters' tab at bottom of the window.
+#### Navigating Synapse Link for CosmosDB
+
+- Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
+- Expand 'Azure CosmosDB', There will be three containers listed with 'Analytical Store' enabled
 - Update the following parameter values. ___(You can copy the resource names from the resource group recently deployed.)___
     - SynapseWorkspaceName  (Make sure workspace name is fully qualified domain name, i.e. workspaceName.database.windows.net)
     - SQLDedicatedPoolName
