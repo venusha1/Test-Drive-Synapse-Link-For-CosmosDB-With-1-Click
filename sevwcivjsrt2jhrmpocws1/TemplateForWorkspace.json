@@ -1589,7 +1589,7 @@
 						"source": [
 							"from azureml.core import Workspace\r\n",
 							"\r\n",
-							"ws = Workspace.create(name='your-AML-%',\r\n",
+							"ws = Workspace.create(name='Name For AML Workspace to be Created',\r\n",
 							"               subscription_id='your-AML-%',\r\n",
 							"               resource_group='your-AML-%',\r\n",
 							"               create_resource_group=True,\r\n",
