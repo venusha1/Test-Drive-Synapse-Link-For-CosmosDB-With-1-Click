@@ -74,7 +74,7 @@ This template deploys necessary resources to support an Azure Synapse link for C
 
 ![PostDeployment-1](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/1.gif)
 
-# Configuriing Synapse Link for CosmosDB
+### Configuring Synapse Link for CosmosDB
 - Click on the 'Manage' icon in the left panel and navigate to 'Linked Services' menu option.
 - Click on 'RetailSalesDemoDB' linked service to open up configuration settings.
 - Select 'From Azure subscription' under 'Account selection method'.
