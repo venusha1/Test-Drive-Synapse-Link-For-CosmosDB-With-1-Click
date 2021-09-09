@@ -1,4 +1,4 @@
-## Azure Synapse 1-click POC environment with pre-populated dataset, pipeline, notebook
+## Azure Synapse Link For CosmosDB 1-click environment,Deployment of Azure Synapse,Synapse Link for CosmosDB,CosmosDB(Analytical Containers),Notebook
 This 1-click deployment allows the user to deploy a Proof-of-Concept environment of Azure Synapse Analytics with dataset (New York Taxi Trips & Fares data), pipeline to (ingest, merge, aggregate), 	notebook (Spark ML prediction)
 
 ## Prerequisites
