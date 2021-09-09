@@ -224,9 +224,7 @@
 			{
 				"cell_type": "markdown",
 				"source": [
-					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
-					"\n",
-					"Replace all \"your-AML-%\" placeholders with your own information"
+					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model"
 				]
 			},
 			{
@@ -265,7 +263,7 @@
 					}
 				},
 				"source": [
-					"Please replace all \"your-AML-%\" placeholders with your own information\r\n",
+					"\r\n",
 					""
 				]
 			},
