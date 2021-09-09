@@ -74,6 +74,20 @@ This template deploys necessary resources to support an Azure Synapse link for C
 
 ![PostDeployment-1](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/1.gif)
 
+- Click on the 'Manage' icon in the left panel and navigate to 'Linked Services' menu option.
+- Click on 'RetailSalesDemoDB' linked service to open up configuration settings.
+- Select 'From Azure subscription' under 'Account selection method'.
+- Select Subscription under which the package is deployed.
+- Select CosmosDB account
+- Select CosmosDB Databasename 'RetailSalesDemoDB'
+- Click 'Apply' to save the changes
+- Update the following parameter values. ___(You can copy the resource names from the resource group recently deployed.)___
+    - SynapseWorkspaceName  (Make sure workspace name is fully qualified domain name, i.e. workspaceName.database.windows.net)
+    - SQLDedicatedPoolName
+    - SQLLoginUsername
+    - KeyVaultName
+    - DatalakeAccountName
+
 - Now open the Notebook named '1-SalesForecastingWithAML'.
 - Click on 'Parameters' tab at bottom of the window.
 - Update the following parameter values. ___(You can copy the resource names from the resource group recently deployed.)___
