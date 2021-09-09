@@ -30,10 +30,10 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahzfincsdply/providers/Microsoft.Synapse/workspaces/dpl7xepxqy4yl3kkpocws1/bigDataPools/ws1sparkpool1",
+				"id": "/subscriptions/4eeedd72-d937-4243-86d1-c3982a84d924/resourceGroups/nashahz0909-07/providers/Microsoft.Synapse/workspaces/sevwcivjsrt2jhrmpocws1/bigDataPools/ws1sparkpool1",
 				"name": "ws1sparkpool1",
 				"type": "Spark",
-				"endpoint": "https://dpl7xepxqy4yl3kkpocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"endpoint": "https://sevwcivjsrt2jhrmpocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -125,7 +125,7 @@
 					"    .mode('append')\\\r\n",
 					"    .save()"
 				],
-				"execution_count": 3
+				"execution_count": 1
 			},
 			{
 				"cell_type": "markdown",
@@ -169,7 +169,7 @@
 					"    spark.cosmos.container 'Products'\n",
 					");"
 				],
-				"execution_count": 9
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
@@ -219,7 +219,7 @@
 					"\n",
 					"display(data)"
 				],
-				"execution_count": 10
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
@@ -303,7 +303,7 @@
 					"outputDf = pd.DataFrame(data = output, index = [''])\n",
 					"outputDf.T"
 				],
-				"execution_count": 6
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
@@ -371,7 +371,7 @@
 					"from azureml.core.dataset import Dataset\n",
 					"train_dataset = Dataset.Tabular.from_delimited_files(path=datastore.path('dataset/SurfaceSales_train.csv'))"
 				],
-				"execution_count": 7
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
@@ -409,7 +409,7 @@
 					"\n",
 					""
 				],
-				"execution_count": 8
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
@@ -432,7 +432,7 @@
 					"X_test[time_column_name] = pd.to_datetime(X_test[time_column_name])\n",
 					"y_predictions, X_trans = fitted_model.forecast(X_test)"
 				],
-				"execution_count": 9
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
@@ -518,7 +518,7 @@
 					"plt.legend((test_pred, test_test), ('prediction', 'truth'), loc='upper left', fontsize=8)\n",
 					"plt.show()"
 				],
-				"execution_count": 10
+				"execution_count": null
 			},
 			{
 				"cell_type": "markdown",
