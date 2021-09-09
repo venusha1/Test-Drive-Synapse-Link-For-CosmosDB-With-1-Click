@@ -226,7 +226,7 @@
 				"source": [
 					"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
 					"\n",
-					"Replace all \"your-AML-%\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
+					"Replace all \"your-AML-%\" placeholders with your own information"
 				]
 			},
 			{
