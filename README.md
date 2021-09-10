@@ -106,4 +106,4 @@ This template deploys necessary resources to support an Azure Synapse link for C
 - Once published all the resources will now be available in the live mode.
 - To switch to the live mode from git mode, click the drop down at top left corner and select 'Switch to live mode'.
 
-![PostDeployment-6](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/liveMode.PNG)
+![Publish](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click)
