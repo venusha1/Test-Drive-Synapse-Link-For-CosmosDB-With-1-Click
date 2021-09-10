@@ -103,6 +103,11 @@ This template deploys necessary resources to support an Azure Synapse link for C
 
 ![Navigate Notebook](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Navigate_Notebook.gif)
 
+#### CosmosDB Populated Containers
+- On completion of Notebook CosmosDB containers will be populated with sample dataset.
+
+https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/CosmosDB_Containers_Data.gif
+
 #### Read and Explore CosmosDB data within Synapse studio Using Synapse Link for CosmosDB
 ![Read and Explore](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Read_Container.gif)
 
