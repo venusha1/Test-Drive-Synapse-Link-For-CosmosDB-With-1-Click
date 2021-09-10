@@ -1569,7 +1569,7 @@
 						"source": [
 							"## Leverage power of Azure Machine Learning's AutoML to build a Forecasting Model\n",
 							"\n",
-							"Replace all \"your-AML-%\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
+							"Replace all \"AML\" placeholders with your own information,Replace subscription_id , resource_group and location with values beofore execution"
 						]
 					},
 					{
@@ -1609,7 +1609,7 @@
 							}
 						},
 						"source": [
-							"Please replace all \"your-AML-%\" placeholders with your own information\r\n",
+							"Please replace all \"AML\" placeholders with your own information\r\n",
 							"Use values for SUBSCRIPTION_ID,RESOURCE_GROUP,WORKSPACE_NAME,WORKSPACE_REGION from the previous step before execution\r\n",
 							""
 						]
