@@ -101,9 +101,12 @@ This template deploys necessary resources to support an Azure Synapse link for C
   - Join spark tables using Synapse spark serverless
   - Execute Machine learning model on this dataset using Azure ML
 
+#### Read and Explore CosmosDB data within Synapse studio Using Synapse Link for CosmosDB
+![Read and Explore](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Read_Container.gif)
+
 ![Navigate Notebook](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Navigate_Notebook.gif)
 
-#### Publishing Chhnages
+#### Publishing Changes
 - Once published all the resources will now be available in the live mode.
 - To switch to the live mode from git mode, click the drop down at top left corner and select 'Switch to live mode'.
 
