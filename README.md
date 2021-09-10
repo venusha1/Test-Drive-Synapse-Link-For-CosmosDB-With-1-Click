@@ -72,7 +72,7 @@ This template deploys necessary resources to support an Azure Synapse link for C
 - After logging in into your github account, click on 'Notebook' icon in the left panel. A blade will appear from right side of the screen.
 - Make sure that 'main' branch is selected as 'Working branch' and click 'Save'.
 
-![PostDeployment-1](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Start_Workspace.gif)
+![Start Workspace](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Start_Workspace.gif)
 
 #### Configuring Synapse Link for CosmosDB
 - Click on the 'Manage' icon in the left panel and navigate to 'Linked Services' menu option.
@@ -89,7 +89,7 @@ This template deploys necessary resources to support an Azure Synapse link for C
 - Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
 - Expand 'Azure CosmosDB', There will be three containers listed with 'Analytical Store' enabled
 
-![PostDeployment-2](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/2.gif)
+![Navigate Synapse Link](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Navigate_Synapse_Link.gif)
 
 #### Notebook execution to Ingest data into CosmosDB containers,Read this data through Synapse Spark serverless and execute Azure Machine Learning
 
