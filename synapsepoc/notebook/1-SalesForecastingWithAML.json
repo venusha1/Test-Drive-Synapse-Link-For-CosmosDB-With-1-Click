@@ -246,9 +246,9 @@
 				"source": [
 					"from azureml.core import Workspace\r\n",
 					"\r\n",
-					"ws = Workspace.create(name='<Name For AML Workspace to be Created>',\r\n",
-					"               subscription_id='<Subscription Id Where AML Workspace will be created, Same Subscription where Package is deployed>',\r\n",
-					"               resource_group='<Resource Group Where AML Workspace will be created.Same Resource group where Package is deployed>',\r\n",
+					"ws = Workspace.create(name='<Name For AML Workspace to be Deployed>',\r\n",
+					"               subscription_id='<Subscription Id Where AML Workspace will be created, Same Subscription where Package is Deployed>',\r\n",
+					"               resource_group='<Resource Group Where AML Workspace will be created.Same Resource group where Package is Deployed>',\r\n",
 					"               create_resource_group=True,\r\n",
 					"               location='South Central US' ## Optional, Update If Required\r\n",
 					"               )"
