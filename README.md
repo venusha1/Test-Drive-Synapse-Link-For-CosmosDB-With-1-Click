@@ -101,20 +101,7 @@ This template deploys necessary resources to support an Azure Synapse link for C
   - Join spark tables using Synapse spark serverless
   - Execute Machine learning model on this dataset using Azure ML
 
-
-![PostDeployment-3](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/3.gif)
-
-- Now to trigger the pipeline, click 'Add trigger' at the top panel and click 'Trigger now'.
-- Confirm the pipeline parameters' values and click 'Ok'.
-- You can check the pipeline status under 'Pipeline runs' in the 'Monitor' tab on the left panel.
-
-![PostDeployment-4](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/5.gif)
-
-- To run the notebook (if spark pool is deployed), click on 'Develop' tab on the left panel.
-- Now under 'Notebooks' dropdown on left side of screen, click the notebook named 'Data Exploration and ML Modeling - NYC taxi predict using Spark MLlib'.
-- Click 'Run all' to run the notebook. (It might take a few minutes to start the session)
-
-![PostDeployment-5](https://raw.githubusercontent.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/main/images/6.gif)
+![Navigate Notebook](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Navigate_Notebook.gif)
 
 - Once published all the resources will now be available in the live mode.
 - To switch to the live mode from git mode, click the drop down at top left corner and select 'Switch to live mode'.
