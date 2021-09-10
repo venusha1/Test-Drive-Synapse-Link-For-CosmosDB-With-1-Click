@@ -82,7 +82,9 @@ This template deploys necessary resources to support an Azure Synapse link for C
 - Select CosmosDB account
 - Select CosmosDB Databasename 'RetailSalesDemoDB'
 - Click 'Apply' to save the changes
+
 ![Configure Comsos Link](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Configure_CosmosLink.gif)
+
 #### Navigating Synapse Link for CosmosDB
 - Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
 - Expand 'Azure CosmosDB', There will be three containers listed with 'Analytical Store' enabled
