@@ -1,12 +1,12 @@
 ## Azure Synapse Link For CosmosDB 1-click environment
-This 1-click deployment allows the user to deploy a environment of Azure Synapse Analytics ,Synapse Link for CosmosDB,CosmosDB (Analytical Store),Notebook (Sales Forecasting)
+This 1-click deployment allows the user to deploy an environment of Azure Synapse Analytics ,Synapse Link for CosmosDB,CosmosDB (Analytical Store),Notebook (Sales Forecasting)
 
 ## Prerequisites
 
-Owner role (or Contributor roles) for the Azure Subscription the template being deployed in. This is for creation of a separate Resource Group and to delegate roles necessary for this proof of concept. Refer to this [official documentation](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-steps) for RBAC role-assignments.
+Owner role (or Contributor roles) for the Azure Subscription the template being deployed in. This is for the creation of a separate Resource Group and to delegate roles necessary for this proof of concept. Refer to this [official documentation](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-steps) for RBAC role-assignments.
 
 ## Deployment Steps
-1. Fork out [this github repository](https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click) into your github account. 
+1. Fork out [this GitHub Repository](https://github.com/Azure/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click) into your GitHub account. 
     
    **If you don't fork repo:** 
    + **Notebook will not be deployed**
@@ -46,15 +46,15 @@ Owner role (or Contributor roles) for the Azure Subscription the template being 
    - On successful validation, click 'Create'.
 
 ## Azure Services being deployed
-This template deploys necessary resources to support an Azure Synapse link for CosmosDB which includes following resources along with some RBAC role assignments:
+This template deploys necessary resources to support an Azure Synapse link for CosmosDB which includes the following resources along with some RBAC role assignments:
 
 - An Azure Synapse Workspace 
 - An Azure Synapse SQL Pool
 - An optional Apache Spark Pool
 - Azure Data Lake Storage Gen2 account
 - A new File System inside the Storage Account to be used by Azure Synapse
-- A Logic App to Pause the SQL Pool at defined schedule
-- A Logic App to Resume the SQL Pool at defined schedule
+- A Logic App to Pause the SQL Pool at a defined schedule
+- A Logic App to Resume the SQL Pool at a defined schedule
 - A key vault to store the secrets
 - CosmosDB with three containers(Analytical store Enabled)
 - AML workspace
@@ -67,10 +67,10 @@ This template deploys necessary resources to support an Azure Synapse link for C
 - After the deployment is complete, click 'Go to resource group'.
 - You'll see all the resources deployed in the resource group.
 - Click on the newly deployed Synapse workspace.
-- Click on link 'Open' inside the box labelled as 'Open Synapse Studio'.
-- Click on 'Log into Github' after workspace is opened. Provide your credentials for the github account holding the forked out repository.
-- After logging in into your github account, click on 'Notebook' icon in the left panel. A blade will appear from right side of the screen.
-- Make sure that 'main' branch is selected as 'Working branch' and click 'Save'.
+- Click on the link 'Open' inside the box labelled as 'Open Synapse Studio'.
+- Click on 'Log into Github' after the workspace is opened. Provide your credentials for the github account holding the forked-out repository.
+- After logging to your GitHub account, click on 'Notebook' icon in the left panel. A blade will appear from the right side of the screen.
+- Make sure that the 'main' branch is selected as 'Working branch' and click 'Save'.
 
 ![Start Workspace](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Start_Workspace.gif)
 
@@ -87,14 +87,14 @@ This template deploys necessary resources to support an Azure Synapse link for C
 
 #### Navigating Synapse Link for CosmosDB
 - Open the CosmosDB account, Under the 'Features' tab Synapse Link will appear as Enabled.
-- To check the pre created database and containers with Analytical store navigate to 'Data Explorer'.
-- Same containers will also be available under Synapse Studio.Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
+- To check the pre-created database and containers with Analytical store navigate to 'Data Explorer'.
+- Same containers will also be available under Synapse Studio.Click on the 'Data' icon in the left panel and navigate to the 'Linked' menu option.
 - Expand 'Azure CosmosDB', There will be three containers listed with 'Analytical Store' enabled.
 
 ![Navigate Synapse Link](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Navigate_Synapse_Link.gif)
 
 #### Notebook Execution Using Synapse Link for CosmosDB
-- Click on the 'Devlop' icon in the left panel and navigate to '1-SalesForecastingWithAML' notebook.
+- Click on the 'Develop' icon in the left panel and navigate to '1-SalesForecastingWithAML' notebook.
 - Follow the instructions in each cell of Notebook to execute:
   - Ingest Data into CosmosDB containers using Synapse Link for CosmosDB
   - Create Spark tables out of CosmosDB using Synapse link for CosmosDB
@@ -104,7 +104,7 @@ This template deploys necessary resources to support an Azure Synapse link for C
 ![Navigate Notebook](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Navigate_Notebook.gif)
 
 #### CosmosDB Populated Containers
-- On completion of Notebook CosmosDB containers will be populated with sample dataset.
+- On completion of Notebook CosmosDB containers will be populated with a sample dataset.
 
 ![CosmosDB Populated Containers](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/CosmosDB_Containers_Data.gif)
 
@@ -113,6 +113,6 @@ This template deploys necessary resources to support an Azure Synapse link for C
 
 #### Publishing Changes
 - Once published all the resources will now be available in the live mode.
-- To switch to the live mode from git mode, click the drop down at top left corner and select 'Switch to live mode'.
+- To switch to the live mode from git mode, click the drop-down at the top left corner and select 'Switch to live mode'.
 
 ![Publish](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Publish.gif)
