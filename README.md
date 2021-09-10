@@ -86,9 +86,9 @@ This template deploys necessary resources to support an Azure Synapse link for C
 ![Configure Comsos Link](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Configure_CosmosLink.gif)
 
 #### Navigating Synapse Link for CosmosDB
-- Open the CosmosDB account, Under the 'Faetures' tab Synapse Link will appear as Enabled.
+- Open the CosmosDB account, Under the 'Features' tab Synapse Link will appear as Enabled.
 - To check the pre created database and containers with Analytical store navigate to 'Data Explorer'.
-- Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
+- Same containers will also be available under Synapse Studio.Click on the 'Data' icon in the left panel and navigate to 'Linked' menu option.
 - Expand 'Azure CosmosDB', There will be three containers listed with 'Analytical Store' enabled.
 
 ![Navigate Synapse Link](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Navigate_Synapse_Link.gif)
