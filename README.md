@@ -93,11 +93,10 @@ This template deploys necessary resources to support an Azure Synapse link for C
 
 ![Navigate Synapse Link](https://github.com/nashahz/Test-Drive-Synapse-Link-For-CosmosDB-With-1-Click/blob/main/images/Navigate_Synapse_Link.gif)
 
-#### Notebook execution to Ingest data into CosmosDB containers,Read this data through Synapse Spark serverless and execute Azure Machine Learning
-
+#### Notebook Execution Using Synapse Link for CosmosDB
 - Click on the 'Devlop' icon in the left panel and navigate to '1-SalesForecastingWithAML' notebook.
 - Follow the instructions in each cell of Notebook to execute:
-  - Ingest Data into CosmosDB containers
+  - Ingest Data into CosmosDB containers using Synapse Link for CosmosDB
   - Create Spark tables out of CosmosDB using Synapse link for CosmosDB
   - Join spark tables using Synapse spark serverless
   - Execute Machine learning model on this dataset using Azure ML
